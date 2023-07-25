@@ -258,8 +258,7 @@ begin
 
   if txt_codigo.Text = '' then
   begin
-    showmessage('Duplo clique no registro que deseja excluir');
-    txt_codigo.SetFocus;
+    showmessage('Duplo clique no registro que deseja excluir');   
     exit;
   end;
 
