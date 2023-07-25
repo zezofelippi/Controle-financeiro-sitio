@@ -45,6 +45,7 @@ type
 
 var
   dm: Tdm;
+  
 
 implementation
 

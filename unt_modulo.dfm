@@ -1,6 +1,6 @@
 object dm: Tdm
   OldCreateOrder = False
-  Left = 594
+  Left = 641
   Top = 204
   Height = 385
   Width = 263
@@ -132,8 +132,8 @@ object dm: Tdm
   end
   object BD: TIBDatabase
     DatabaseName = 
-      '127.0.0.1:D:\Despesas Pessoais - sitio\base de dados\DESPESA_PES' +
-      'SOAL.GDB'
+      '127.0.0.1:D:\Despesas Pessoais - sitio\Despesas sitio\despesas-s' +
+      'itio\Base_dados\DESPESA_PESSOAL.GDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey')
