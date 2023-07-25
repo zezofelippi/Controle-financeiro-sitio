@@ -50,24 +50,22 @@ var
 
 implementation
 
-uses unt_cad_despesas, untrel_data_tipo, unt_rel_data_tipo,
-  unt_data_dias_semana, unt_obs, unt_contas_pagar, untRelMediaDesp,
-  untGraficoDespesa, unt_cad_receitas, untListDespRec, untCadTipoDespesa,
-  untCadTipoReceita , untMovimentacaoMaquina, untLeituraCPFL;
+uses
+  untCadTipoDespesa;
 
 
 {$R *.dfm}
 
 procedure Tfrm_menu.DataemDiassemana1Click(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_data_dias_semana, frm_data_dias_semana);
-frm_data_dias_semana.show;
+//Application.CreateForm(Tfrm_data_dias_semana, frm_data_dias_semana);
+//frm_data_dias_semana.show;
 end;
 
 procedure Tfrm_menu.Lembrete1Click(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_contas_pagar, frm_contas_pagar);
-frm_contas_pagar.show;
+//Application.CreateForm(Tfrm_contas_pagar, frm_contas_pagar);
+//frm_contas_pagar.show;
 
 end;
 
@@ -79,62 +77,62 @@ end;
 
 procedure Tfrm_menu.menCadDespesasClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
-frm_cad_despesas.show;
+//Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
+//frm_cad_despesas.show;
 end;
 
 procedure Tfrm_menu.menRelGeralClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
-frm_rel_data_tipo.show;
+//Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
+//frm_rel_data_tipo.show;
 end;
 
 procedure Tfrm_menu.Rel1Click(Sender: TObject);
 begin
-Application.CreateForm(TfrmRelMediaDesp, frmRelMediaDesp);
-frmRelMediaDesp.show;
+//Application.CreateForm(TfrmRelMediaDesp, frmRelMediaDesp);
+//frmRelMediaDesp.show;
 end;
 
 procedure Tfrm_menu.RelMediaporGraficos1Click(Sender: TObject);
 begin
-Application.CreateForm(TfrmGraficoDespesa, frmGraficoDespesa);
-frmGraficoDespesa.show;
+//Application.CreateForm(TfrmGraficoDespesa, frmGraficoDespesa);
+//frmGraficoDespesa.show;
 end;
 
 procedure Tfrm_menu.menReceitasXDespesasClick(Sender: TObject);
 begin
-Application.CreateForm(TfrmListDespRec, frmListDespRec);
-frmListDespRec.show;
+//Application.CreateForm(TfrmListDespRec, frmListDespRec);
+//frmListDespRec.show;
 end;
 
 procedure Tfrm_menu.menDescricaoOBSClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_obs, frm_obs);
-frm_obs.show;
+//Application.CreateForm(Tfrm_obs, frm_obs);
+//frm_obs.show;
 end;
 
 procedure Tfrm_menu.menCadReceitaClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
-frm_cad_receitas.show;
+//Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
+//frm_cad_receitas.show;
 end;
 
 procedure Tfrm_menu.menCadTipoReceitaClick(Sender: TObject);
 begin
-Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
-frmCadTipoReceita.show;
+//Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
+//frmCadTipoReceita.show;
 end;
 
 procedure Tfrm_menu.menMovimentaoMaquinaClick(Sender: TObject);
 begin
-Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
-frmMovimentacaoMaquina.show;
+//Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
+//frmMovimentacaoMaquina.show;
 end;
 
 procedure Tfrm_menu.menLeituraCPFLClick(Sender: TObject);
 begin
-Application.CreateForm(TfrmLeituraCPFL, frmLeituraCPFL);
-frmLeituraCPFL.show; 
+//Application.CreateForm(TfrmLeituraCPFL, frmLeituraCPFL);
+//frmLeituraCPFL.show;
 end;
 
 end.

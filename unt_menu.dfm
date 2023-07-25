@@ -1,6 +1,6 @@
 object frm_menu: Tfrm_menu
-  Left = 360
-  Top = 190
+  Left = 478
+  Top = 236
   Width = 632
   Height = 385
   Caption = 'Menu'
