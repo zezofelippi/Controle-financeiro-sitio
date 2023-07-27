@@ -28,6 +28,7 @@ type
     qryPesquisa: TIBQuery;
     qryTipoDespesaTIP_CODIGO_SIT: TIntegerField;
     qryTipoDespesaTIP_DESCRICAO_SIT: TIBStringField;
+    btnCancelar: TButton;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure txt_descricaoEnter(Sender: TObject);
@@ -40,6 +41,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnAlterarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -100,6 +102,7 @@ begin
   btnAlterar.Enabled := false;
   btnExcluir.Enabled := false;
   btnGravar.Enabled := false;
+  btnCancelar.enabled := false;
 
   gpbDados.Enabled := false;
 
@@ -183,22 +186,32 @@ begin
   btninserir.Tag := 0;
   btnAlterar.Tag := 0;
 
-  btnexcluir.Enabled := true;
-  btnalterar.Enabled := true;
+  btnexcluir.Enabled := false;
+  btnalterar.Enabled := false;
   btnInserir.Enabled := true;
+  btnCancelar.enabled := false;
 
 end;
 
 procedure TfrmCadTipoDespesa.DBGrid1DblClick(Sender: TObject);
 begin
-  txt_codigo.Text := qryTipoDespesa.fieldbyname('TIP_CODIGO_SIT').AsString;
-  txt_descricao.Text := qryTipoDespesa.fieldbyname('TIP_DESCRICAO_SIT').AsString;
+  qryTipoDespesa.Close;
+  qryTipoDespesa.SQL.Clear;
+  qryTipoDespesa.SQL.Add('SELECT * FROM TIPO_DESPESA_SITIO');
+  qryTipoDespesa.Open;
+  qryTipoDespesa.FetchAll;
 
-  gpbDados.Enabled := false;
+  if not qryTipoDespesa.IsEmpty then
+  begin
+    txt_codigo.Text := qryTipoDespesa.fieldbyname('TIP_CODIGO_SIT').AsString;
+    txt_descricao.Text := qryTipoDespesa.fieldbyname('TIP_DESCRICAO_SIT').AsString;
 
-  btnAlterar.Enabled := true;
-  btnExcluir.Enabled := true;
-  btnGravar.Enabled := false;
+    gpbDados.Enabled := false;
+
+    btnAlterar.Enabled := true;
+    btnExcluir.Enabled := true;
+    btnGravar.Enabled := false;
+  end;  
 
 end;
 
@@ -230,6 +243,7 @@ begin
   btnexcluir.Enabled := false;
   btnalterar.Enabled := false;
   btnInserir.Enabled := false;
+  btnCancelar.enabled := true;
 
 end;
 
@@ -246,10 +260,11 @@ begin
   gpbDados.Enabled := true;
 
   btnGravar.Enabled := true;
-
   btnexcluir.Enabled := false;
-
   btnalterar.Enabled := false;
+  btnCancelar.enabled := true;
+
+  txt_descricao.SetFocus;
 
 end;
 
@@ -282,6 +297,8 @@ begin
     gpbDados.Enabled := false;
 
     btnGravar.Enabled := false;
+    btnCancelar.enabled := false;
+    btnAlterar.enabled := false;
 
     //MOSTRA OS DADOS NA GRID
     qryTipoDespesa.Close;
@@ -294,6 +311,18 @@ begin
    IDNO : Exit;
  end; //FIM CASE
 
+end;
+
+procedure TfrmCadTipoDespesa.btnCancelarClick(Sender: TObject);
+begin
+  btnexcluir.Enabled := false;
+  btnalterar.Enabled := false;
+  btnInserir.Enabled := true;
+  btnCancelar.enabled := false;
+  btnGravar.enabled:= false;
+
+  btninserir.Tag := 0;
+  btnAlterar.Tag := 0;
 end;
 
 end.

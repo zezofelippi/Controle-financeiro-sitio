@@ -61,7 +61,7 @@ object frmCadTipoDespesa: TfrmCadTipoDespesa
     Left = 448
     Top = 2
     Width = 129
-    Height = 175
+    Height = 213
     TabOrder = 1
     object btnGravar: TButton
       Left = 8
@@ -74,7 +74,7 @@ object frmCadTipoDespesa: TfrmCadTipoDespesa
     end
     object btnAlterar: TButton
       Left = 8
-      Top = 90
+      Top = 123
       Width = 113
       Height = 32
       Caption = 'Alterar'
@@ -83,7 +83,7 @@ object frmCadTipoDespesa: TfrmCadTipoDespesa
     end
     object btnExcluir: TButton
       Left = 8
-      Top = 124
+      Top = 156
       Width = 113
       Height = 32
       Caption = 'Excluir'
@@ -98,6 +98,15 @@ object frmCadTipoDespesa: TfrmCadTipoDespesa
       Caption = 'Inserir'
       TabOrder = 3
       OnClick = btnInserirClick
+    end
+    object btnCancelar: TButton
+      Left = 8
+      Top = 89
+      Width = 113
+      Height = 33
+      Caption = 'Cancelar'
+      TabOrder = 4
+      OnClick = btnCancelarClick
     end
   end
   object DBGrid1: TDBGrid
@@ -175,14 +184,14 @@ object frmCadTipoDespesa: TfrmCadTipoDespesa
     BufferChunks = 1000
     CachedUpdates = False
     Left = 472
-    Top = 208
+    Top = 256
   end
   object IBTransLocal: TIBTransaction
     Active = False
     DefaultDatabase = dm.BD
     AutoStopAction = saNone
     Left = 504
-    Top = 208
+    Top = 256
   end
   object QRY_MAX_CODIGO: TIBQuery
     Database = dm.BD
