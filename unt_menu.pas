@@ -51,7 +51,7 @@ var
 implementation
 
 uses
-  untCadTipoDespesa;
+  untCadTipoDespesa, unt_cad_despesas;
 
 
 {$R *.dfm}
@@ -77,8 +77,8 @@ end;
 
 procedure Tfrm_menu.menCadDespesasClick(Sender: TObject);
 begin
-//Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
-//frm_cad_despesas.show;
+Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
+frm_cad_despesas.show;
 end;
 
 procedure Tfrm_menu.menRelGeralClick(Sender: TObject);
