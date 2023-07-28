@@ -6,7 +6,7 @@ uses
  unt_modulo in 'unt_modulo.pas' {dm: TDataModule},
 //  untRelCadDespesa in 'untRelCadDespesa.pas' {frmRelCadDespesa},
 //  untRelCadReceita in 'untRelCadReceita.pas' {frmRelCadReceita},
-//  unt_cad_despesas in 'unt_cad_despesas.pas' {frm_cad_despesas},
+  unt_cad_despesas in 'unt_cad_despesas.pas' {frm_cad_despesas},
   untCadTipoDespesa in 'untCadTipoDespesa.pas' {frmCadTipoDespesa};
 //  unt_contas_pagar in 'unt_contas_pagar.pas' {frm_contas_pagar},
 //  untRelContasPagar in 'untRelContasPagar.pas' {frmRelContasPagar},
@@ -32,7 +32,7 @@ begin
   Application.CreateForm(Tdm, dm);
 //  Application.CreateForm(TfrmRelCadDespesa, frmRelCadDespesa);
 //  Application.CreateForm(TfrmRelCadReceita, frmRelCadReceita);
-//  Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
+  Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
   Application.CreateForm(TfrmCadTipoDespesa, frmCadTipoDespesa);
 //  Application.CreateForm(Tfrm_contas_pagar, frm_contas_pagar);
 //  Application.CreateForm(TfrmRelContasPagar, frmRelContasPagar);
