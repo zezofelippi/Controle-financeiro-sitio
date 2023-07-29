@@ -59,14 +59,14 @@ object frm_cad_despesas: Tfrm_cad_despesas
     OnExit = txt_outra_despesaExit
     OnKeyPress = txt_outra_despesaKeyPress
   end
-  object Button1: TButton
+  object btnGravar: TButton
     Left = 214
     Top = 135
     Width = 75
     Height = 25
     Caption = 'Gravar'
     TabOrder = 1
-    OnClick = Button1Click
+    OnClick = btnGravarClick
   end
   object txt_Valor: TCurrencyEdit
     Left = 8

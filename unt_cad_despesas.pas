@@ -14,7 +14,7 @@ type
     txt_outra_despesa: TEdit;
     Label3: TLabel;
     Label4: TLabel;
-    Button1: TButton;
+    btnGravar: TButton;
     qry_despesa: TIBQuery;
     IBTransLocal: TIBTransaction;
     txt_Valor: TCurrencyEdit;
@@ -29,7 +29,7 @@ type
     qryDespesaDESPESA: TIBStringField;
     qry_pesquisa_ano: TIBQuery;
     procedure FormShow(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btnGravarClick(Sender: TObject);
     procedure cbo_despesaKeyPress(Sender: TObject; var Key: Char);
     procedure txt_outra_despesaKeyPress(Sender: TObject; var Key: Char);
     procedure txt_valorKeyPress(Sender: TObject; var Key: Char);
@@ -80,107 +80,107 @@ cboDespesa.SetFocus;
 
 end;
 
-procedure Tfrm_cad_despesas.Button1Click(Sender: TObject);
+procedure Tfrm_cad_despesas.btnGravarClick(Sender: TObject);
 var
-cod_despesa : integer;
-mes, ano, codmes, codano : string;
+  cod_despesa : integer;
+  mes, ano, codmes, codano : string;
 
 begin
 
-if cboDespesa.Text = '' then
-begin
-showmessage('Coloque a despesa');
-cboDespesa.SetFocus;
-exit;
-end;
+  if cboDespesa.Text = '' then
+  begin
+    showmessage('Coloque a despesa');
+    cboDespesa.SetFocus;
+    exit;
+  end;
 
 
-if txt_valor.Text = '' then
-begin
-showmessage('Coloque o valor');
-txt_valor.SetFocus;
-exit;
-end;
+  if txt_valor.Text = '' then
+  begin
+    showmessage('Coloque o valor');
+    txt_valor.SetFocus;
+    exit;
+  end;
 
-if txt_data.Text = '  /  /    ' then
-begin
-showmessage('Coloque a data');
-txt_data.SetFocus;
-exit;
-end;
+  if txt_data.Text = '  /  /    ' then
+  begin
+    showmessage('Coloque a data');
+    txt_data.SetFocus;
+    exit;
+  end;
 
-QRY_MAX_CODIGO.Close;
-QRY_MAX_CODIGO.SQL.Clear;
-QRY_MAX_CODIGO.SQL.Add('SELECT MAX(CODIGO) AS CODIGO FROM CAD_DESPESA_SITIO');
-QRY_MAX_CODIGO.Open;
-cod_despesa := QRY_MAX_CODIGO.FieldByName('CODIGO').AsInteger +1;
+  QRY_MAX_CODIGO.Close;
+  QRY_MAX_CODIGO.SQL.Clear;
+  QRY_MAX_CODIGO.SQL.Add('SELECT MAX(CODIGO) AS CODIGO FROM CAD_DESPESA_SITIO');
+  QRY_MAX_CODIGO.Open;
+  cod_despesa := QRY_MAX_CODIGO.FieldByName('CODIGO').AsInteger +1;
 
 
-//VERIFICA SE COD_MES ESTA PREENCHIDO NO CAD. RECEITA E CAD. DESPESA//////////
+  //VERIFICA SE COD_MES ESTA PREENCHIDO NO CAD. RECEITA E CAD. DESPESA//////////
 
-   mes := (formatdatetime('mm',strtodatetime(txt_data.text)));
-   ano := (formatdatetime('yyyy',strtodatetime(txt_data.text)));
-   
-   qry_pesquisa.Close;
-   qry_pesquisa.SQL.Clear;
-   qry_pesquisa.SQL.Add('SELECT EXTRACT(month FROM DATA) AS MES, EXTRACT(YEAR FROM DATA) AS ANO, COD_MES  '+
-     'FROM ITENS_RECEITAS_SITIO WHERE EXTRACT(month FROM DATA) =:MES                    '+
-     'AND EXTRACT(YEAR FROM DATA) =:ANO');
-   qry_pesquisa.ParamByName('MES').AsString := mes;
-   qry_pesquisa.ParamByName('ANO').AsString := ano;
-   qry_pesquisa.Open;
+  mes := (formatdatetime('mm',strtodatetime(txt_data.text)));
+  ano := (formatdatetime('yyyy',strtodatetime(txt_data.text)));
 
-   if not qry_pesquisa.IsEmpty then
+  qry_pesquisa.Close;
+  qry_pesquisa.SQL.Clear;
+  qry_pesquisa.SQL.Add('SELECT EXTRACT(month FROM DATA) AS MES, EXTRACT(YEAR FROM DATA) AS ANO, COD_MES  '+
+    'FROM ITENS_RECEITAS_SITIO WHERE EXTRACT(month FROM DATA) =:MES                    '+
+    'AND EXTRACT(YEAR FROM DATA) =:ANO');
+  qry_pesquisa.ParamByName('MES').AsString := mes;
+  qry_pesquisa.ParamByName('ANO').AsString := ano;
+  qry_pesquisa.Open;
+
+  if not qry_pesquisa.IsEmpty then
     codmes:= qry_pesquisa.fieldbyname('COD_MES').AsString
-   else
+  else
     codmes:= '';
 
-   if codmes <> '' then
-   begin
-     qry_pesquisa.Close;
-     qry_pesquisa.SQL.Clear;
-     qry_pesquisa.SQL.Add('SELECT EXTRACT(month FROM DATA) AS MES, EXTRACT(YEAR FROM DATA) AS ANO, COD_MES  '+
-       'FROM CAD_DESPESA_SITIO WHERE COD_MES=:COD_MES');
-     qry_pesquisa.ParamByName('COD_MES').AsString := codmes;
-     qry_pesquisa.Open;
-   end;
-    
+  if codmes <> '' then
+  begin
+    qry_pesquisa.Close;
+    qry_pesquisa.SQL.Clear;
+    qry_pesquisa.SQL.Add('SELECT EXTRACT(month FROM DATA) AS MES, EXTRACT(YEAR FROM DATA) AS ANO, COD_MES  '+
+      'FROM CAD_DESPESA_SITIO WHERE COD_MES=:COD_MES');
+    qry_pesquisa.ParamByName('COD_MES').AsString := codmes;
+    qry_pesquisa.Open;
+  end;
+
 
 /////FIM VERIFICA SE COD_MES ESTA PREENCHIDO NO CAD. RECEITA E CAD. DESPESA/////////////
 
 
 //VERIFICA SE COD_ANO ESTA PREENCHIDO NO CAD. RECEITA E CAD. DESPESA//////////
 
-   ano := (formatdatetime('yyyy',strtodatetime(txt_data.text)));
-   
-   qry_pesquisa_ano.Close;
-   qry_pesquisa_ano.SQL.Clear;
-   qry_pesquisa_ano.SQL.Add('SELECT EXTRACT(YEAR FROM DATA) AS ANO, COD_ANO  '+
-     'FROM ITENS_RECEITAS_SITIO WHERE                     '+
-     'EXTRACT(YEAR FROM DATA) =:ANO');
-   qry_pesquisa_ano.ParamByName('ANO').AsString := ano;
-   qry_pesquisa_ano.Open;
+  ano := (formatdatetime('yyyy',strtodatetime(txt_data.text)));
 
-   if not qry_pesquisa_ano.IsEmpty then
+  qry_pesquisa_ano.Close;
+  qry_pesquisa_ano.SQL.Clear;
+  qry_pesquisa_ano.SQL.Add('SELECT EXTRACT(YEAR FROM DATA) AS ANO, COD_ANO  '+
+    'FROM ITENS_RECEITAS_SITIO WHERE                     '+
+    'EXTRACT(YEAR FROM DATA) =:ANO');
+  qry_pesquisa_ano.ParamByName('ANO').AsString := ano;
+  qry_pesquisa_ano.Open;
+
+  if not qry_pesquisa_ano.IsEmpty then
     codano:= qry_pesquisa_ano.fieldbyname('COD_ANO').AsString
-   else
+  else
     codano:= '';
 
-   if codano <> '' then
-   begin
-     qry_pesquisa_ano.Close;
-     qry_pesquisa_ano.SQL.Clear;
-     qry_pesquisa_ano.SQL.Add('SELECT EXTRACT(YEAR FROM DATA) AS ANO, COD_ANO  '+
-       'FROM CAD_DESPESA_SITIO WHERE COD_ANO=:COD_ANO');
-     qry_pesquisa_ano.ParamByName('COD_ANO').AsString := codano;
-     qry_pesquisa_ano.Open;
-   end;
-    
+  if codano <> '' then
+  begin
+    qry_pesquisa_ano.Close;
+    qry_pesquisa_ano.SQL.Clear;
+    qry_pesquisa_ano.SQL.Add('SELECT EXTRACT(YEAR FROM DATA) AS ANO, COD_ANO  '+
+      'FROM CAD_DESPESA_SITIO WHERE COD_ANO=:COD_ANO');
+    qry_pesquisa_ano.ParamByName('COD_ANO').AsString := codano;
+    qry_pesquisa_ano.Open;
+  end;
+
 
 /////FIM VERIFICA SE COD_ANO ESTA PREENCHIDO NO CAD. RECEITA E CAD. DESPESA/////////////
 
 
- if not IBTRANSLOCAL.InTransaction then
+  if not IBTRANSLOCAL.InTransaction then
     IBTRANSLOCAL.StartTransaction;
   qry_despesa.Close;
   qry_despesa.SQL.Clear;
@@ -193,124 +193,122 @@ cod_despesa := QRY_MAX_CODIGO.FieldByName('CODIGO').AsInteger +1;
   qry_despesa.ParamByName('TIP_CODIGO_SIT').AsInteger     := cboDespesa.KeyValue;
 
   if (qry_pesquisa.IsEmpty) and (codmes <> '') then  //SO PODE GRAVAR O COD_MES EM UM REGISTRO NO MES
-     qry_despesa.ParamByName('COD_MES').AsString  := codmes;
+    qry_despesa.ParamByName('COD_MES').AsString  := codmes;
 
   if (qry_pesquisa_ano.IsEmpty) and (codano <> '') then  //SO PODE GRAVAR O COD_ANO EM UM REGISTRO NO ANO
-     qry_despesa.ParamByName('COD_ANO').AsString  := codano;
+    qry_despesa.ParamByName('COD_ANO').AsString  := codano;
 
   qry_despesa.ExecSQL;
   IBTRANSLOCAL.Commit;
 
+  cboDespesa.KeyValue := NULL;
+  txt_outra_despesa.Clear;
+  txt_valor.Clear;
+  txt_data.Clear;
 
-
-cboDespesa.KeyValue := NULL;
-txt_outra_despesa.Clear;
-txt_valor.Clear;
-txt_data.Clear;
-
-cboDespesa.SetFocus;
+  cboDespesa.SetFocus;
 
 end;
 
 procedure Tfrm_cad_despesas.cbo_despesaKeyPress(Sender: TObject;
   var Key: Char);
 begin
-if key =#13 then
-   txt_outra_despesa.SetFocus; 
+  if key =#13 then
+    txt_outra_despesa.SetFocus;
 end;
 
 procedure Tfrm_cad_despesas.txt_outra_despesaKeyPress(Sender: TObject;
   var Key: Char);
 begin
-if key =#13 then
-txt_valor.SetFocus;
+  if key =#13 then
+    txt_valor.SetFocus;
 end;
 
 procedure Tfrm_cad_despesas.txt_valorKeyPress(Sender: TObject;
   var Key: Char);
 begin
-if key =#13 then
-txt_data.SetFocus;
+  if key =#13 then
+    txt_data.SetFocus;
 end;
 
 procedure Tfrm_cad_despesas.txt_dataKeyPress(Sender: TObject;
   var Key: Char);
 begin
  if key=#13 then
-    button1.SetFocus;
+   btnGravar.SetFocus;
 end;
 
 procedure Tfrm_cad_despesas.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-frm_cad_despesas := nil;
-action:= cafree;
+  frm_cad_despesas := nil;
+  action:= cafree;
 end;
 
 procedure Tfrm_cad_despesas.cbo_despesaEnter(Sender: TObject);
 begin
-cboDespesa.Color := $00F5EEDE;
+  cboDespesa.Color := $00F5EEDE;
 end;
 
 procedure Tfrm_cad_despesas.cbo_despesaExit(Sender: TObject);
 begin
-cboDespesa.Color := clwindow;
+  cboDespesa.Color := clwindow;
 end;
 
 procedure Tfrm_cad_despesas.txt_outra_despesaEnter(Sender: TObject);
 begin
-txt_outra_despesa.Color := $00F5EEDE;
+  txt_outra_despesa.Color := $00F5EEDE;
 end;
 
 procedure Tfrm_cad_despesas.txt_outra_despesaExit(Sender: TObject);
 begin
-txt_outra_despesa.Color := clwindow;
+  txt_outra_despesa.Color := clwindow;
 end;
 
 procedure Tfrm_cad_despesas.txt_ValorEnter(Sender: TObject);
 begin
-txt_valor.Color := $00F5EEDE;
+  txt_valor.Color := $00F5EEDE;
 end;
 
 procedure Tfrm_cad_despesas.txt_ValorExit(Sender: TObject);
 begin
-txt_valor.Color := clwindow;
+  txt_valor.Color := clwindow;
 end;
 
 procedure Tfrm_cad_despesas.txt_dataEnter(Sender: TObject);
 begin
-txt_data.Color := $00F5EEDE;
+  txt_data.Color := $00F5EEDE;
 end;
 
 procedure Tfrm_cad_despesas.txt_dataExit(Sender: TObject);
 begin
-txt_data.Color := clwindow;
+  txt_data.Color := clwindow;
 end;
 
 procedure Tfrm_cad_despesas.cboDespesaEnter(Sender: TObject);
 begin
-cboDespesa.Color :=$00F5EEDE;
+  cboDespesa.Color :=$00F5EEDE;
 end;
 
 procedure Tfrm_cad_despesas.cboDespesaExit(Sender: TObject);
 begin
-cboDespesa.Color := clwindow;
+  cboDespesa.Color := clwindow;
 end;
 
 procedure Tfrm_cad_despesas.cboDespesaKeyPress(Sender: TObject;
   var Key: Char);
 begin
-if key =#13 then
-   txt_outra_despesa.SetFocus;
+  if key =#13 then
+    txt_outra_despesa.SetFocus;
 end;
 
 procedure Tfrm_cad_despesas.cboDespesaKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
-if key = Vk_back then
-  cboDespesa.KeyValue := null;
+  if key = Vk_back then
+    cboDespesa.KeyValue := null;
 
-  
+
 end;
 
 end.
