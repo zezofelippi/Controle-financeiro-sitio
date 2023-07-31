@@ -51,7 +51,7 @@ var
 implementation
 
 uses
-  untCadTipoDespesa, unt_cad_despesas;
+  untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo;
 
 
 {$R *.dfm}
@@ -83,8 +83,8 @@ end;
 
 procedure Tfrm_menu.menRelGeralClick(Sender: TObject);
 begin
-//Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
-//frm_rel_data_tipo.show;
+Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
+frm_rel_data_tipo.show;
 end;
 
 procedure Tfrm_menu.Rel1Click(Sender: TObject);
