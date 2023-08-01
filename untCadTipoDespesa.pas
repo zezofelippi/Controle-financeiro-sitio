@@ -228,8 +228,6 @@ begin
   txt_descricao.Clear;
   txt_DESCRICAO.SetFocus;
 
-  btnAlterar.Enabled := false;
-  btnExcluir.Enabled := false;
   btnGravar.Enabled := true;
 
   QRY_MAX_CODIGO.Close;
