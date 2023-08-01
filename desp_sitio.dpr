@@ -10,7 +10,7 @@ uses
   untCadTipoDespesa in 'untCadTipoDespesa.pas' {frmCadTipoDespesa},
 //  unt_contas_pagar in 'unt_contas_pagar.pas' {frm_contas_pagar},
 //  untRelContasPagar in 'untRelContasPagar.pas' {frmRelContasPagar},
-  unt_rel_data_tipo in 'unt_rel_data_tipo.pas' {frm_rel_data_tipo};
+  unt_rel_data_tipo in 'unt_rel_data_tipo.pas' {frm_rel_data_tipo},
 //  untRelMediaDesp in 'untRelMediaDesp.pas' {frmRelMediaDesp},
 //  untRelMediaDesp2 in 'untRelMediaDesp2.pas' {frmRelMediaDesp2},
 //  untGraficoDespesa in 'untGraficoDespesa.pas' {frmGraficoDespesa},
@@ -18,7 +18,7 @@ uses
 //  untListDespRec in 'untListDespRec.pas' {frmListDespRec},
 //  untRelRecDesp in 'untRelRecDesp.pas' {frmRelRecDesp},
 //  untConfirmarBaixaContasPagar in 'untConfirmarBaixaContasPagar.pas' {frmConfirmarBaixaContasPagar},
-//  untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita},
+  untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita};
 //  unt_obs in 'unt_obs.pas' {frm_obs},
 //  untRelObs in 'untRelObs.pas' {frmRelObs},
 //  untMovimentacaoMaquina in 'untMovimentacaoMaquina.pas' {frmMovimentacaoMaquina},
@@ -44,7 +44,7 @@ begin
 //  Application.CreateForm(TfrmListDespRec, frmListDespRec);
 //  Application.CreateForm(TfrmRelRecDesp, frmRelRecDesp);
 //  Application.CreateForm(TfrmConfirmarBaixaContasPagar, frmConfirmarBaixaContasPagar);
-//  Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
+  Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
 //  Application.CreateForm(Tfrm_obs, frm_obs);
 //  Application.CreateForm(TfrmRelObs, frmRelObs);
 //  Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
