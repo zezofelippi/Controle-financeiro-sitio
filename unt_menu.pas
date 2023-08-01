@@ -51,7 +51,8 @@ var
 implementation
 
 uses
-  untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo;
+  untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo,
+  untCadTipoReceita;
 
 
 {$R *.dfm}
@@ -71,20 +72,20 @@ end;
 
 procedure Tfrm_menu.ipoDespesa1Click(Sender: TObject);
 begin
-Application.CreateForm(TfrmCadTipoDespesa, frmCadTipoDespesa);
-frmCadTipoDespesa.show;
+  Application.CreateForm(TfrmCadTipoDespesa, frmCadTipoDespesa);
+  frmCadTipoDespesa.show;
 end;
 
 procedure Tfrm_menu.menCadDespesasClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
-frm_cad_despesas.show;
+  Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
+  frm_cad_despesas.show;
 end;
 
 procedure Tfrm_menu.menRelGeralClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
-frm_rel_data_tipo.show;
+  Application.CreateForm(Tfrm_rel_data_tipo, frm_rel_data_tipo);
+  frm_rel_data_tipo.show;
 end;
 
 procedure Tfrm_menu.Rel1Click(Sender: TObject);
@@ -119,8 +120,8 @@ end;
 
 procedure Tfrm_menu.menCadTipoReceitaClick(Sender: TObject);
 begin
-//Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
-//frmCadTipoReceita.show;
+  Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
+  frmCadTipoReceita.show;
 end;
 
 procedure Tfrm_menu.menMovimentaoMaquinaClick(Sender: TObject);
