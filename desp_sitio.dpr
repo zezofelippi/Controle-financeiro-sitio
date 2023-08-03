@@ -5,7 +5,7 @@ uses
  unt_menu in 'unt_menu.pas' {frm_menu},
  unt_modulo in 'unt_modulo.pas' {dm: TDataModule},
   untRelCadDespesa in 'untRelCadDespesa.pas' {frmRelCadDespesa},
-//  untRelCadReceita in 'untRelCadReceita.pas' {frmRelCadReceita},
+  untRelCadReceita in 'untRelCadReceita.pas' {frmRelCadReceita},
   unt_cad_despesas in 'unt_cad_despesas.pas' {frm_cad_despesas},
   untCadTipoDespesa in 'untCadTipoDespesa.pas' {frmCadTipoDespesa},
 //  unt_contas_pagar in 'unt_contas_pagar.pas' {frm_contas_pagar},
@@ -14,7 +14,7 @@ uses
 //  untRelMediaDesp in 'untRelMediaDesp.pas' {frmRelMediaDesp},
 //  untRelMediaDesp2 in 'untRelMediaDesp2.pas' {frmRelMediaDesp2},
 //  untGraficoDespesa in 'untGraficoDespesa.pas' {frmGraficoDespesa},
-//  unt_cad_receitas in 'unt_cad_receitas.pas' {frm_cad_receitas},
+  unt_cad_receitas in 'unt_cad_receitas.pas' {frm_cad_receitas},
 //  untListDespRec in 'untListDespRec.pas' {frmListDespRec},
 //  untRelRecDesp in 'untRelRecDesp.pas' {frmRelRecDesp},
 //  untConfirmarBaixaContasPagar in 'untConfirmarBaixaContasPagar.pas' {frmConfirmarBaixaContasPagar},
@@ -31,7 +31,7 @@ begin
   Application.CreateForm(Tfrm_menu, frm_menu);
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(TfrmRelCadDespesa, frmRelCadDespesa);
-//  Application.CreateForm(TfrmRelCadReceita, frmRelCadReceita);
+  Application.CreateForm(TfrmRelCadReceita, frmRelCadReceita);
   Application.CreateForm(Tfrm_cad_despesas, frm_cad_despesas);
   Application.CreateForm(TfrmCadTipoDespesa, frmCadTipoDespesa);
 //  Application.CreateForm(Tfrm_contas_pagar, frm_contas_pagar);
@@ -40,7 +40,7 @@ begin
 //  Application.CreateForm(TfrmRelMediaDesp, frmRelMediaDesp);
 //  Application.CreateForm(TfrmRelMediaDesp2, frmRelMediaDesp2);
 //  Application.CreateForm(TfrmGraficoDespesa, frmGraficoDespesa);
-//  Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
+  Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
 //  Application.CreateForm(TfrmListDespRec, frmListDespRec);
 //  Application.CreateForm(TfrmRelRecDesp, frmRelRecDesp);
 //  Application.CreateForm(TfrmConfirmarBaixaContasPagar, frmConfirmarBaixaContasPagar);
