@@ -52,7 +52,7 @@ implementation
 
 uses
   untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo,
-  untCadTipoReceita, unt_cad_receitas;
+  untCadTipoReceita, unt_cad_receitas, untListDespRec;
 
 
 {$R *.dfm}
@@ -102,8 +102,8 @@ end;
 
 procedure Tfrm_menu.menReceitasXDespesasClick(Sender: TObject);
 begin
-//Application.CreateForm(TfrmListDespRec, frmListDespRec);
-//frmListDespRec.show;
+  Application.CreateForm(TfrmListDespRec, frmListDespRec);
+  frmListDespRec.show;
 end;
 
 procedure Tfrm_menu.menDescricaoOBSClick(Sender: TObject);
@@ -114,8 +114,8 @@ end;
 
 procedure Tfrm_menu.menCadReceitaClick(Sender: TObject);
 begin
-Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
-frm_cad_receitas.show;
+  Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
+  frm_cad_receitas.show;
 end;
 
 procedure Tfrm_menu.menCadTipoReceitaClick(Sender: TObject);
