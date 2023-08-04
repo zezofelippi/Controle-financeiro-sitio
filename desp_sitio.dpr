@@ -15,8 +15,8 @@ uses
 //  untRelMediaDesp2 in 'untRelMediaDesp2.pas' {frmRelMediaDesp2},
 //  untGraficoDespesa in 'untGraficoDespesa.pas' {frmGraficoDespesa},
   unt_cad_receitas in 'unt_cad_receitas.pas' {frm_cad_receitas},
-//  untListDespRec in 'untListDespRec.pas' {frmListDespRec},
-//  untRelRecDesp in 'untRelRecDesp.pas' {frmRelRecDesp},
+  untListDespRec in 'untListDespRec.pas' {frmListDespRec},
+  untRelRecDesp in 'untRelRecDesp.pas' {frmRelRecDesp},
 //  untConfirmarBaixaContasPagar in 'untConfirmarBaixaContasPagar.pas' {frmConfirmarBaixaContasPagar},
   untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita};
 //  unt_obs in 'unt_obs.pas' {frm_obs},
@@ -41,8 +41,8 @@ begin
 //  Application.CreateForm(TfrmRelMediaDesp2, frmRelMediaDesp2);
 //  Application.CreateForm(TfrmGraficoDespesa, frmGraficoDespesa);
   Application.CreateForm(Tfrm_cad_receitas, frm_cad_receitas);
-//  Application.CreateForm(TfrmListDespRec, frmListDespRec);
-//  Application.CreateForm(TfrmRelRecDesp, frmRelRecDesp);
+  Application.CreateForm(TfrmListDespRec, frmListDespRec);
+  Application.CreateForm(TfrmRelRecDesp, frmRelRecDesp);
 //  Application.CreateForm(TfrmConfirmarBaixaContasPagar, frmConfirmarBaixaContasPagar);
   Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
 //  Application.CreateForm(Tfrm_obs, frm_obs);
