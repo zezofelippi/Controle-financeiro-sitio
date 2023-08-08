@@ -52,7 +52,8 @@ implementation
 
 uses
   untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo,
-  untCadTipoReceita, unt_cad_receitas, untListDespRec;
+  untCadTipoReceita, unt_cad_receitas, untListDespRec,
+  untMovimentacaoMaquina;
 
 
 {$R *.dfm}
@@ -126,8 +127,8 @@ end;
 
 procedure Tfrm_menu.menMovimentaoMaquinaClick(Sender: TObject);
 begin
-//Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
-//frmMovimentacaoMaquina.show;
+Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
+frmMovimentacaoMaquina.show;
 end;
 
 procedure Tfrm_menu.menLeituraCPFLClick(Sender: TObject);
