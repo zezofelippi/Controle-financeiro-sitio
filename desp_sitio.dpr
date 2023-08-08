@@ -18,10 +18,10 @@ uses
   untListDespRec in 'untListDespRec.pas' {frmListDespRec},
   untRelRecDesp in 'untRelRecDesp.pas' {frmRelRecDesp},
 //  untConfirmarBaixaContasPagar in 'untConfirmarBaixaContasPagar.pas' {frmConfirmarBaixaContasPagar},
-  untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita};
+  untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita},
 //  unt_obs in 'unt_obs.pas' {frm_obs},
 //  untRelObs in 'untRelObs.pas' {frmRelObs},
-//  untMovimentacaoMaquina in 'untMovimentacaoMaquina.pas' {frmMovimentacaoMaquina},
+  untMovimentacaoMaquina in 'untMovimentacaoMaquina.pas' {frmMovimentacaoMaquina};
 //  untLeituraCPFL in 'untLeituraCPFL.pas' {frmLeituraCPFL};
 
 {$R *.res}
@@ -47,7 +47,7 @@ begin
   Application.CreateForm(TfrmCadTipoReceita, frmCadTipoReceita);
 //  Application.CreateForm(Tfrm_obs, frm_obs);
 //  Application.CreateForm(TfrmRelObs, frmRelObs);
-//  Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
+  Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
 //  Application.CreateForm(TfrmLeituraCPFL, frmLeituraCPFL);
   Application.Run;
 end.
