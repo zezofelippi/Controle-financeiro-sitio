@@ -21,8 +21,8 @@ uses
   untCadTipoReceita in 'untCadTipoReceita.pas' {frmCadTipoReceita},
 //  unt_obs in 'unt_obs.pas' {frm_obs},
 //  untRelObs in 'untRelObs.pas' {frmRelObs},
-  untMovimentacaoMaquina in 'untMovimentacaoMaquina.pas' {frmMovimentacaoMaquina};
-//  untLeituraCPFL in 'untLeituraCPFL.pas' {frmLeituraCPFL};
+  untMovimentacaoMaquina in 'untMovimentacaoMaquina.pas' {frmMovimentacaoMaquina},
+  untLeituraCPFL in 'untLeituraCPFL.pas' {frmLeituraCPFL};
 
 {$R *.res}
 
@@ -48,6 +48,6 @@ begin
 //  Application.CreateForm(Tfrm_obs, frm_obs);
 //  Application.CreateForm(TfrmRelObs, frmRelObs);
   Application.CreateForm(TfrmMovimentacaoMaquina, frmMovimentacaoMaquina);
-//  Application.CreateForm(TfrmLeituraCPFL, frmLeituraCPFL);
+  Application.CreateForm(TfrmLeituraCPFL, frmLeituraCPFL);
   Application.Run;
 end.
