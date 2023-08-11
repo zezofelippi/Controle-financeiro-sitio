@@ -26,13 +26,9 @@ type
     menDiversos: TMenuItem;
     menMovimentaoMaquina: TMenuItem;
     menLeituraCPFL: TMenuItem;
-    procedure DataemDiassemana1Click(Sender: TObject);
-    procedure Lembrete1Click(Sender: TObject);
     procedure ipoDespesa1Click(Sender: TObject);
     procedure menCadDespesasClick(Sender: TObject);
     procedure menRelGeralClick(Sender: TObject);
-    procedure Rel1Click(Sender: TObject);
-    procedure RelMediaporGraficos1Click(Sender: TObject);
     procedure menReceitasXDespesasClick(Sender: TObject);
     procedure menDescricaoOBSClick(Sender: TObject);
     procedure menCadReceitaClick(Sender: TObject);
@@ -53,23 +49,10 @@ implementation
 uses
   untCadTipoDespesa, unt_cad_despesas, unt_rel_data_tipo,
   untCadTipoReceita, unt_cad_receitas, untListDespRec,
-  untMovimentacaoMaquina, untLeituraCPFL;
+  untMovimentacaoMaquina, untLeituraCPFL, unt_obs;
 
 
 {$R *.dfm}
-
-procedure Tfrm_menu.DataemDiassemana1Click(Sender: TObject);
-begin
-//Application.CreateForm(Tfrm_data_dias_semana, frm_data_dias_semana);
-//frm_data_dias_semana.show;
-end;
-
-procedure Tfrm_menu.Lembrete1Click(Sender: TObject);
-begin
-//Application.CreateForm(Tfrm_contas_pagar, frm_contas_pagar);
-//frm_contas_pagar.show;
-
-end;
 
 procedure Tfrm_menu.ipoDespesa1Click(Sender: TObject);
 begin
@@ -89,18 +72,6 @@ begin
   frm_rel_data_tipo.show;
 end;
 
-procedure Tfrm_menu.Rel1Click(Sender: TObject);
-begin
-//Application.CreateForm(TfrmRelMediaDesp, frmRelMediaDesp);
-//frmRelMediaDesp.show;
-end;
-
-procedure Tfrm_menu.RelMediaporGraficos1Click(Sender: TObject);
-begin
-//Application.CreateForm(TfrmGraficoDespesa, frmGraficoDespesa);
-//frmGraficoDespesa.show;
-end;
-
 procedure Tfrm_menu.menReceitasXDespesasClick(Sender: TObject);
 begin
   Application.CreateForm(TfrmListDespRec, frmListDespRec);
@@ -109,8 +80,8 @@ end;
 
 procedure Tfrm_menu.menDescricaoOBSClick(Sender: TObject);
 begin
-//Application.CreateForm(Tfrm_obs, frm_obs);
-//frm_obs.show;
+  Application.CreateForm(Tfrm_obs, frm_obs);
+  frm_obs.show;
 end;
 
 procedure Tfrm_menu.menCadReceitaClick(Sender: TObject);
