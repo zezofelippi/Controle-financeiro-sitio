@@ -195,12 +195,6 @@ end;
 
 procedure TfrmCadTipoDespesa.DBGrid1DblClick(Sender: TObject);
 begin
-  qryTipoDespesa.Close;
-  qryTipoDespesa.SQL.Clear;
-  qryTipoDespesa.SQL.Add('SELECT * FROM TIPO_DESPESA_SITIO');
-  qryTipoDespesa.Open;
-  qryTipoDespesa.FetchAll;
-
   if not qryTipoDespesa.IsEmpty then
   begin
     txt_codigo.Text := qryTipoDespesa.fieldbyname('TIP_CODIGO_SIT').AsString;
@@ -212,7 +206,6 @@ begin
     btnExcluir.Enabled := true;
     btnGravar.Enabled := false;
   end;  
-
 end;
 
 procedure TfrmCadTipoDespesa.btnInserirClick(Sender: TObject);
